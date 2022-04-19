@@ -204,6 +204,8 @@ namespace FileManager_2._0
             DirectoriesAndFilesRight.Font = new System.Drawing.Font(currentFont, 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             buttonBackLeft.Font = new System.Drawing.Font(currentFont, 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             buttonBackRight.Font = new System.Drawing.Font(currentFont, 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            TextStyleComboBox.Font = new System.Drawing.Font(currentFont, 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            ThemeColorComboBox.Font = new System.Drawing.Font(currentFont, 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
         }
     }
 }

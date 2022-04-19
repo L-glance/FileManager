@@ -25,7 +25,7 @@ namespace FileManager_2._0
             return instance;
         }
         public int[] rgb = new int[3];
-        public string[] Fonts = new string[] { "Segoe UI", "Showcard Gothic", "Snap ITC" };
+        public string[] Fonts = new string[] { "Segoe UI", "Showcard Gothic", "Snap ITC", "Jokerman", "Engravers MT", "Castellar" };
         public string[] ColorThemeName = new string[] { "Dark", "Dracula", "Cheerful Spring", "Blue Moon", "Blood Moon" };
         public string CurrentFontName;
         public string CurrentColorThemeName;

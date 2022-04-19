@@ -47,7 +47,6 @@
             this.buttonMove = new System.Windows.Forms.Button();
             this.labelMove = new System.Windows.Forms.Label();
             this.buttonCopy = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.TextStyleComboBox = new System.Windows.Forms.ComboBox();
             this.ThemeColorComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
@@ -250,13 +249,6 @@
             this.buttonCopy.UseVisualStyleBackColor = false;
             this.buttonCopy.Click += new System.EventHandler(this.buttonCopy_Click);
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(50, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(125, 27);
-            this.textBox1.TabIndex = 18;
-            // 
             // TextStyleComboBox
             // 
             this.TextStyleComboBox.FormattingEnabled = true;
@@ -282,7 +274,6 @@
             this.ClientSize = new System.Drawing.Size(1262, 673);
             this.Controls.Add(this.ThemeColorComboBox);
             this.Controls.Add(this.TextStyleComboBox);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.buttonCopy);
             this.Controls.Add(this.labelMove);
             this.Controls.Add(this.buttonMove);
@@ -328,7 +319,6 @@
         private ListBox DirectoriesAndFilesLeft;
         private Label labelMove;
         private Button buttonCopy;
-        private TextBox textBox1;
         private ComboBox TextStyleComboBox;
         private ComboBox ThemeColorComboBox;
     }

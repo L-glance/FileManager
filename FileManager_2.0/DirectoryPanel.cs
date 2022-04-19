@@ -124,7 +124,8 @@ namespace FileManager_2._0
             else if(Directory.Exists(OldPath))
             {
                 string newPath = movingform.TextBoxNewFilePath.Text +@"\"+ ListFiAndDir.SelectedItem.ToString();
-                try { 
+                try
+                { 
                 Directory.Move(OldPath,newPath);
                 }
                 catch (Exception ex)
