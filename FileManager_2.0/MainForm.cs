@@ -5,7 +5,7 @@ namespace FileManager_2._0
     {
         DirectoryPanel LeftDirPanel;
         DirectoryPanel RightDirPanel;
-
+        public static bool isSearching;
         public MainForm()
         {
 
@@ -56,6 +56,7 @@ namespace FileManager_2._0
             DirectoriesAndFilesRight.BackColor = System.Drawing.Color.FromArgb(red, green, blue);
             buttonBackLeft.BackColor = System.Drawing.Color.FromArgb(red, green, blue);
             buttonBackRight.BackColor = System.Drawing.Color.FromArgb(red, green, blue);
+            searchButton.BackColor = System.Drawing.Color.FromArgb(red, green, blue);
             this.BackColor = System.Drawing.Color.FromArgb(Math.Max(red-30,0), Math.Max(green-30,0), blue);
             FilePathLeft.BackColor = System.Drawing.Color.FromArgb(red + 10, green, blue);
             FilePathRight.BackColor = System.Drawing.Color.FromArgb(red + 10, green, blue);
@@ -68,6 +69,7 @@ namespace FileManager_2._0
             buttonBackRight.ForeColor= ForeColor;
             FilePathRight.ForeColor = ForeColor;
             FilePathLeft.ForeColor= ForeColor;
+            searchButton.ForeColor= ForeColor;
         }
         private void RenameButton_MouseEnter(object sender, EventArgs e) => RenameLabel.Text = "Переименовать";
         private void RenameButton_MouseLeave(object sender, EventArgs e) => RenameLabel.Text = "";
@@ -219,7 +221,13 @@ namespace FileManager_2._0
             ThemeColorComboBox.Font = new System.Drawing.Font(currentFont, 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             FilePathLeft.Font = new System.Drawing.Font(currentFont, 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             FilePathRight.Font = new System.Drawing.Font(currentFont, 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            searchButton.Font = new System.Drawing.Font(currentFont, 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+        }
 
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            if(!isSearching) new FindForm(LeftDirPanel.CurrentPath.Text).Show();
+            isSearching = true;
         }
     }
 }

@@ -25,9 +25,6 @@ namespace FileManager_2._0
         {
             authorizationSetings.login = loginRichTextBox.Text;
             authorizationSetings.password = passwordTextBox.Text;
-            
-            //authorizationSetings.password = Crypter.Decrypt(authorizationSetings.password);
-            //authorizationSetings.login = Crypter.Decrypt(authorizationSetings.login);
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)

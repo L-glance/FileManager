@@ -49,6 +49,7 @@
             this.buttonCopy = new System.Windows.Forms.Button();
             this.TextStyleComboBox = new System.Windows.Forms.ComboBox();
             this.ThemeColorComboBox = new System.Windows.Forms.ComboBox();
+            this.searchButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // FilePathLeft
@@ -267,11 +268,22 @@
             this.ThemeColorComboBox.TabIndex = 20;
             this.ThemeColorComboBox.SelectedIndexChanged += new System.EventHandler(this.ThemeColorComboBox_SelectedIndexChanged);
             // 
+            // searchButton
+            // 
+            this.searchButton.Location = new System.Drawing.Point(1069, 58);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(160, 31);
+            this.searchButton.TabIndex = 21;
+            this.searchButton.Text = "search";
+            this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1262, 673);
+            this.Controls.Add(this.searchButton);
             this.Controls.Add(this.ThemeColorComboBox);
             this.Controls.Add(this.TextStyleComboBox);
             this.Controls.Add(this.buttonCopy);
@@ -321,5 +333,6 @@
         private Button buttonCopy;
         private ComboBox TextStyleComboBox;
         private ComboBox ThemeColorComboBox;
+        private Button searchButton;
     }
 }

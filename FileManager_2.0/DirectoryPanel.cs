@@ -8,8 +8,8 @@ namespace FileManager_2._0
 {
     internal class DirectoryPanel
     {
-        TextBox CurrentPath;
-        ListBox ListFiAndDir;
+        public TextBox CurrentPath;
+        public ListBox ListFiAndDir;
         public DirectoryPanel(TextBox CurrentPath,ListBox ListFiAndDir)
         {
             this.CurrentPath = CurrentPath;
