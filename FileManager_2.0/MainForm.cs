@@ -10,12 +10,16 @@ namespace FileManager_2._0
         {
 
             #region DeSerialization
-
-            var formater = new BinaryFormatter();
-            using (FileStream fs = new FileStream("configGUI.txt", FileMode.OpenOrCreate))
+            try
             {
-                GUI.GetInstance((GUI)formater.Deserialize(fs));
+                var formater = new BinaryFormatter();
+                using (FileStream fs = new FileStream("configGUI.txt", FileMode.OpenOrCreate))
+                {
+                    GUI.GetInstance((GUI)formater.Deserialize(fs));
+                }
+
             }
+            catch (Exception ex) { }
             #endregion
             InitializeComponent();
             InitializeStyleViewComponent();
@@ -53,6 +57,8 @@ namespace FileManager_2._0
             buttonBackLeft.BackColor = System.Drawing.Color.FromArgb(red, green, blue);
             buttonBackRight.BackColor = System.Drawing.Color.FromArgb(red, green, blue);
             this.BackColor = System.Drawing.Color.FromArgb(Math.Max(red-30,0), Math.Max(green-30,0), blue);
+            FilePathLeft.BackColor = System.Drawing.Color.FromArgb(red + 10, green, blue);
+            FilePathRight.BackColor = System.Drawing.Color.FromArgb(red + 10, green, blue);
 
             buttonCopyFilePathLeft.ForeColor = ForeColor;
             buttonCopyFilePathRight.ForeColor = ForeColor;
@@ -60,6 +66,8 @@ namespace FileManager_2._0
             DirectoriesAndFilesRight.ForeColor = ForeColor;
             buttonBackLeft.ForeColor = ForeColor;
             buttonBackRight.ForeColor= ForeColor;
+            FilePathRight.ForeColor = ForeColor;
+            FilePathLeft.ForeColor= ForeColor;
         }
         private void RenameButton_MouseEnter(object sender, EventArgs e) => RenameLabel.Text = "Переименовать";
         private void RenameButton_MouseLeave(object sender, EventArgs e) => RenameLabel.Text = "";
@@ -157,15 +165,18 @@ namespace FileManager_2._0
             GUI.GetInstance().rgb[1] = green;
             GUI.GetInstance().rgb[2] = blue;
             InitializeColourfulComponent();
+            
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            #region Serilization
             BinaryFormatter? formater = new BinaryFormatter();
             using (FileStream fs = new FileStream("configGUI.txt", FileMode.OpenOrCreate))
             {
                 formater.Serialize(fs, GUI.GetInstance());
             }
-        }
-
-        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
+            #endregion
             Application.Exit();
         }
 
@@ -206,6 +217,9 @@ namespace FileManager_2._0
             buttonBackRight.Font = new System.Drawing.Font(currentFont, 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             TextStyleComboBox.Font = new System.Drawing.Font(currentFont, 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             ThemeColorComboBox.Font = new System.Drawing.Font(currentFont, 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            FilePathLeft.Font = new System.Drawing.Font(currentFont, 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            FilePathRight.Font = new System.Drawing.Font(currentFont, 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+
         }
     }
 }

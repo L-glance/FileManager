@@ -10,27 +10,24 @@ namespace FileManager_2._0
             InitializeComponent();
             authorizationSetings = new AuthorizationSetings();
             passwordTextBox.PasswordChar = '♥';
-
-            BinaryFormatter formatter = new BinaryFormatter();
-            using (FileStream fs = new FileStream("configs.dat", FileMode.OpenOrCreate))
+            try
             {
-                authorizationSetings = (AuthorizationSetings)formatter.Deserialize(fs);
+                BinaryFormatter formatter = new BinaryFormatter();
+                using (FileStream fs = new FileStream("configs.txt", FileMode.OpenOrCreate))
+                {
+                    authorizationSetings = (AuthorizationSetings)formatter.Deserialize(fs);
+                }
             }
+            catch (Exception ex) { }
 
         }
         private void buttonRegistration_Click(object sender, EventArgs e)
         {
             authorizationSetings.login = loginRichTextBox.Text;
             authorizationSetings.password = passwordTextBox.Text;
-
-            BinaryFormatter formatter = new BinaryFormatter();
-            using (FileStream fs = new FileStream("configs.dat", FileMode.OpenOrCreate))
-            {
-                formatter.Serialize(fs, authorizationSetings);
-
-            }
-            authorizationSetings.password = Crypter.Decrypt(authorizationSetings.password);
-            authorizationSetings.login = Crypter.Decrypt(authorizationSetings.login);
+            
+            //authorizationSetings.password = Crypter.Decrypt(authorizationSetings.password);
+            //authorizationSetings.login = Crypter.Decrypt(authorizationSetings.login);
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
@@ -42,7 +39,6 @@ namespace FileManager_2._0
             {
                 this.Hide();
                 new MainForm().Show();
-
             }
             else
             {
@@ -51,10 +47,21 @@ namespace FileManager_2._0
                 passwordTextBox.Text = "";
             }
 
+            BinaryFormatter formatter = new BinaryFormatter();
+            using (FileStream fs = new FileStream("configs.txt", FileMode.OpenOrCreate))
+            {
+                formatter.Serialize(fs, authorizationSetings);
+            }
+
         }
         private void AdmissionForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void loginRichTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
