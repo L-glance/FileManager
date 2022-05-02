@@ -6,7 +6,7 @@ using System.Text;
 
 namespace FileManager_2._0
 {
-    internal class DirectoryPanel
+    public class DirectoryPanel
     {
         public TextBox CurrentPath;
         public ListBox ListFiAndDir;

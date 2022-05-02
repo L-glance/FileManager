@@ -19,7 +19,7 @@ namespace FileManager_2._0
                 }
             }
             catch (Exception ex) { }
-
+            
         }
         private void buttonRegistration_Click(object sender, EventArgs e)
         {
@@ -29,26 +29,31 @@ namespace FileManager_2._0
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            string inputLogin = loginRichTextBox.Text;
-            string inputPassword = passwordTextBox.Text;
+            this.Hide();
+            new MainForm().Show();
 
-            if(inputPassword == authorizationSetings.password && inputLogin == authorizationSetings.login)
-            {
-                this.Hide();
-                new MainForm().Show();
-            }
-            else
-            {
-                MessageBox.Show("введенные данные неверны");
-                loginRichTextBox.Text = "";
-                passwordTextBox.Text = "";
-            }
+            //string inputLogin = loginRichTextBox.Text;
+            //string inputPassword = passwordTextBox.Text;
 
-            BinaryFormatter formatter = new BinaryFormatter();
-            using (FileStream fs = new FileStream("configs.txt", FileMode.OpenOrCreate))
-            {
-                formatter.Serialize(fs, authorizationSetings);
-            }
+            //if(inputPassword == authorizationSetings.password && inputLogin == authorizationSetings.login)
+            //{
+            //    this.Hide();
+            //    new MainForm().Show();
+
+            //    BinaryFormatter formatter = new BinaryFormatter();
+            //    using (FileStream fs = new FileStream("configs.txt", FileMode.OpenOrCreate))
+            //    {
+            //        formatter.Serialize(fs, authorizationSetings);
+            //    }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("введенные данные неверны");
+            //    loginRichTextBox.Text = "";
+            //    passwordTextBox.Text = "";
+            //}
+
+            
 
         }
         private void AdmissionForm_FormClosing(object sender, FormClosingEventArgs e)
