@@ -227,12 +227,18 @@ namespace FileManager_2._0
         private void searchButton_Click(object sender, EventArgs e)
         {
             string path;
-            if (LeftDirPanel.ListFiAndDir.SelectedItem.ToString() != null)
+            if (LeftDirPanel.ListFiAndDir?.SelectedItem?.ToString() != null)
             {
                 path = LeftDirPanel.CurrentPath.Text + "\\" + LeftDirPanel.ListFiAndDir.SelectedItem.ToString();
             } else path = LeftDirPanel.CurrentPath.Text;
             if (!isSearching) new FindForm(path).Show();
             isSearching = true;
+        }
+
+        private void buttonDownload_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new Download().Show();
         }
     }
 }

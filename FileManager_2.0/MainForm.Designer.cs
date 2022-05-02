@@ -50,6 +50,7 @@
             this.TextStyleComboBox = new System.Windows.Forms.ComboBox();
             this.ThemeColorComboBox = new System.Windows.Forms.ComboBox();
             this.searchButton = new System.Windows.Forms.Button();
+            this.buttonDownload = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // FilePathLeft
@@ -278,11 +279,22 @@
             this.searchButton.UseVisualStyleBackColor = true;
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
+            // buttonDownload
+            // 
+            this.buttonDownload.Location = new System.Drawing.Point(881, 60);
+            this.buttonDownload.Name = "buttonDownload";
+            this.buttonDownload.Size = new System.Drawing.Size(169, 31);
+            this.buttonDownload.TabIndex = 22;
+            this.buttonDownload.Text = "download";
+            this.buttonDownload.UseVisualStyleBackColor = true;
+            this.buttonDownload.Click += new System.EventHandler(this.buttonDownload_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1262, 673);
+            this.Controls.Add(this.buttonDownload);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.ThemeColorComboBox);
             this.Controls.Add(this.TextStyleComboBox);
@@ -334,5 +346,6 @@
         private ComboBox TextStyleComboBox;
         private ComboBox ThemeColorComboBox;
         private Button searchButton;
+        private Button buttonDownload;
     }
 }
