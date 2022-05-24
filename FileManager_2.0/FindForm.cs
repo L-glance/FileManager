@@ -35,7 +35,7 @@ namespace FileManager_2._0
             {
                 string s = File.ReadAllText(findPathTextBox.Text);
                 Regex regexF = new Regex(findPropertyTextBox.Text);
-                MatchCollection temp = regexF.Matches(new DirectoryInfo(s).Name);
+                MatchCollection temp = regexF.Matches(s);
                 foreach (Match match in temp)
                 {
                     finded.Add(match.Groups[0].Value);
